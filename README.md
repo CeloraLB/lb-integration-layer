@@ -1,8 +1,8 @@
-# LB Integration Layer poc
+# LB Integration Layer POC
 
-start vite
+Start app
 ```sh
 npm run dev
 ```
 
-poc is available at [http://localhost:5173/](http://localhost:5173/)
+POC is available at [http://localhost:5173/](http://localhost:5173/)
