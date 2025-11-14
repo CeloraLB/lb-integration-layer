@@ -53,7 +53,7 @@ window.addEventListener('message', (event) => {
   // Only log messages from the iframe origin for security
   if (event.origin === 'http://localhost:3000') {
     console.log('Message received from iframe:', event.data);
-    alert('Message received from iframe:', event.data);
+    alert('Message received from iframe: ' + JSON.stringify(event.data));
   }
 });
 
