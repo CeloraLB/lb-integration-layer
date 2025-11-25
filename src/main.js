@@ -1,3 +1,6 @@
+// const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = 'httsp://stage-app.leadsbridge.com';
+
 const iframe = document.getElementById('integrationFrame');
 const loading = document.getElementById('loading');
 const error = document.getElementById('error');
@@ -7,7 +10,7 @@ const refreshButton = document.getElementById('refreshButton');
 // Function to update iframe src based on app id
 function refreshIframe() {
   const appId = appSelector.value;
-  const newSrc = `http://localhost:3000/integrationLayer/${appId}/new`;
+  const newSrc = `${API_BASE_URL}/integrationLayer/${appId}/new`;
   
   // Show loading state
   loading.style.display = 'block';
@@ -34,7 +37,7 @@ iframe.addEventListener('error', (e) => {
   console.error('Iframe failed to load:', e);
   loading.style.display = 'none';
   error.style.display = 'block';
-  error.textContent = 'Failed to load integration layer. Please check if the server is running at http://localhost:3000';
+  error.textContent = `Failed to load integration layer. Please check if the server is running at ${API_BASE_URL}`;
 });
 
 // Handle timeout (optional - if iframe takes too long)
@@ -51,7 +54,7 @@ iframe.addEventListener('load', () => {
 // Log iframe messages (for debugging)
 window.addEventListener('message', (event) => {
   // Only log messages from the iframe origin for security
-  if (event.origin === 'http://localhost:3000') {
+    if (event.origin === API_BASE_URL) {
     console.log('Message received from iframe:', event.data);
     alert('Message received from iframe: ' + JSON.stringify(event.data));
   }
